@@ -47,10 +47,8 @@ if (file_exists($envFile)) {
 
 // Demander les informations de configuration
 echo "\n📝 Configuration de l'API IA:\n";
-$aiApiUrl = readline("URL de l'API IA (défaut: https://chat.onestepcom00.workers.dev/chat): ");
-if (empty($aiApiUrl)) {
-    $aiApiUrl = 'https://chat.onestepcom00.workers.dev/chat';
-}
+$aiApiUrl = readline("URL de l'API IA");
+
 
 $aiApiKey = readline("Clé API IA (optionnel): ");
 
