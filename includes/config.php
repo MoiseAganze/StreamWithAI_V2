@@ -3,8 +3,12 @@
  * Configuration globale de l'application StreamWithAI
  */
 
+// Charger les variables d'environnement
+require_once __DIR__ . '/EnvLoader.php';
+$env = EnvLoader::getInstance();
+
 // === CONFIGURATION API ===
-define('AI_API_URL', 'https://chat.onestepcom00.workers.dev/chat');
+define('AI_API_URL', $env->getAIApiUrl());
 define('AI_API_TIMEOUT', 15);
 define('AI_API_SYSTEM_PROMPT', 'Reponds en francais au message de user');
 
@@ -23,7 +27,7 @@ define('MAX_CAPTURE_SIZE', 1024 * 1024); // Taille max en bytes (1MB)
 define('CAPTURE_DEBOUNCE_MS', 500); // Délai entre captures en ms
 
 // === CONFIGURATION SÉCURITÉ ===
-define('ALLOWED_ORIGINS', ['*']); // CORS - à restreindre en production
+define('ALLOWED_ORIGINS', $env->getArray('CORS_ALLOWED_ORIGINS', ',', ['*'])); // CORS - à restreindre en production
 define('MAX_REQUEST_SIZE', 10 * 1024 * 1024); // 10MB max
 
 // === CONFIGURATION LOGGING ===

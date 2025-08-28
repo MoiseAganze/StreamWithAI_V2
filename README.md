@@ -215,6 +215,9 @@ git clone https://github.com/votre-repo/StreamWithAI.git
 # Accéder au dossier
 cd StreamWithAI
 
+# Installer et configurer l'environnement
+php install.php
+
 # Démarrer le serveur PHP
 php -S localhost:8000 -t .
 
@@ -223,11 +226,26 @@ php -S localhost:8000 -t .
 ```
 
 ### **Configuration**
-Les paramètres sont dans `includes/config.php` :
+Les paramètres sont dans le fichier `.env` (créé automatiquement par `install.php`) :
 - URLs des APIs
+- Clés API sensibles
 - Timeouts et retry
 - Qualité de compression
 - Paramètres de sécurité
+
+#### **Variables d'environnement importantes**
+```bash
+# API IA
+AI_API_URL=https://api.openai.com/v1/chat/completions
+AI_API_KEY=your_secret_api_key_here
+
+# Service d'upload
+UPLOAD_SERVICE_URL=https://tmpfiles.org/api/v1/upload
+
+# Application
+APP_DEBUG=true
+APP_ENV=development
+```
 
 ---
 
